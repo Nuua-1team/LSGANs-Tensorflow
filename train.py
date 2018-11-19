@@ -134,3 +134,6 @@ if __name__ == '__main__':
 
             data_ops.saveImage(gen_imgs[0], step, images_dir)
             print('Done saving')
+        # epoch 50까지만 돌리기
+        if epoch_num > 50:
+            break
