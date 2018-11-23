@@ -58,21 +58,21 @@ if __name__ == '__main__':
         img = (img + 1.)
         img *= 127.5
         img = np.clip(img, 0, 255).astype(np.uint8)
-        img = np.reshape(img, (112, 112, -1))
+        img = np.reshape(img, (224, 224, -1))
 
-        end_x = start_x + 112
-        end_y = start_y + 112
+        end_x = start_x + 224
+        end_y = start_y + 224
 
         canvas[start_y:end_y, start_x:end_x, :] = img
 
         if x < n:
-            start_x += 112 + 10
+            start_x += 224 + 10
             x += 1
         if x == n:
             x = 0
             start_x = 10
             start_y = end_y + 10
-            end_y = start_y + 112
+            end_y = start_y + 224
 
     misc.imsave('results.png', canvas)
     # cv2.imwrite('results.jpg', canvas)
