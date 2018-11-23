@@ -68,11 +68,11 @@ if __name__ == '__main__':
     g_vars = [var for var in t_vars if 'g_' in var.name]
 
     # optimize G
-    G_train_op = tf.train.AdamOptimizer(learning_rate=0.005, beta1=0.5).minimize(errG, var_list=g_vars,
+    G_train_op = tf.train.AdamOptimizer(learning_rate=0.001, beta1=0.5).minimize(errG, var_list=g_vars,
                                                                                  global_step=global_step)
 
     # optimize D
-    D_train_op = tf.train.AdamOptimizer(learning_rate=0.005, beta1=0.5).minimize(errD, var_list=d_vars)
+    D_train_op = tf.train.AdamOptimizer(learning_rate=0.001, beta1=0.5).minimize(errD, var_list=d_vars)
 
     saver = tf.train.Saver(max_to_keep=1)
     init = tf.global_variables_initializer()
